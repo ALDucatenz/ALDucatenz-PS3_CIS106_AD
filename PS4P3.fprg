@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="aleja"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-10-15 07:02:51 PM"/>
+        <attribute name="created" value="YWxlamE7REVTS1RPUC1KSE9JTDJKOzIwMjEtMTAtMTU7MDQ6MjU6NDMgUE07Mjg2NA=="/>
+        <attribute name="edited" value="YWxlamE7REVTS1RPUC1KSE9JTDJKOzIwMjEtMTAtMTU7MDc6MDI6NTEgUE07MjsyOTcw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="pri" type="Real" array="False" size=""/>
+            <declare name="mature" type="Real" array="False" size=""/>
+            <declare name="rate" type="Real" array="False" size=""/>
+            <declare name="Interest" type="Real" array="False" size=""/>
+            <output expression="&quot;Enter Principle amount of a CD&quot;" newline="True"/>
+            <input variable="pri"/>
+            <output expression="&quot;Enter years to mature&quot;" newline="True"/>
+            <input variable="mature"/>
+            <if expression="(pri &gt; 100000) and (mature == 5)">
+                <then>
+                    <assign variable="rate" expression="0.06"/>
+                </then>
+                <else>
+                    <if expression="pri &gt; 50000 and mature == 10">
+                        <then>
+                            <assign variable="rate" expression="0.05"/>
+                        </then>
+                        <else>
+                            <if expression="pri &gt; 50000 and mature == 5">
+                                <then>
+                                    <assign variable="rate" expression="0.04"/>
+                                </then>
+                                <else>
+                                    <assign variable="rate" expression="0.02"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <assign variable="interest" expression="pri * rate"/>
+            <output expression="&quot;Principle amount of the CD: $&quot; &amp; pri" newline="True"/>
+            <output expression="&quot;Years of maturity: &quot; &amp; mature" newline="True"/>
+            <output expression="&quot;Interest rate: &quot; &amp; rate" newline="True"/>
+            <output expression="&quot;Interest amount for the first year: $&quot; &amp; interest" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
